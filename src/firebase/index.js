@@ -19,9 +19,9 @@ const app = initializeApp(firebaseConfig);
 // Initialize Cloud Storage and get a reference to the service
 const storage = getStorage(app);
 
-export const getUrl = async(fileName)=>{
+export const getUrl = async(filePath)=>{
         try{
-            const url = await getDownloadURL(ref(storage, `ambient/${fileName}.mp3`))
+            const url = await getDownloadURL(ref(storage, filePath))
             return url;
         }
         catch(err){
