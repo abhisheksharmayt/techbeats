@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import AudioCard from './AudioCard';
 import { getUrl } from '../firebase';
-import { audioData } from '../utils/audioData';
+import { audioData } from '../images/audioData';
 
 const Main = () => {
     const [data, setData] = useState(audioData);
@@ -14,7 +14,7 @@ const Main = () => {
         fetchUrl();
     }, [])
     return (
-        <main className='min-h-screen bg-[#212529] p-5 flex flex-col items-center'>
+        <main className='min-h-screen p-5 flex flex-col items-center'>
             <img className='w-[400px]' src={imgUrl} alt="Tech Beats Logo" />
             <div className='w-full p-5 flex gap-5 flex-wrap justify-evenly'>
                 {
