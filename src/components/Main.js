@@ -14,9 +14,9 @@ const Main = () => {
         fetchUrl();
     }, [])
     return (
-        <main className='min-h-screen p-10 flex flex-col items-center md:px-24'>
+        <main className='min-h-screen p-10 flex flex-col items-center md:px-14'>
             <img className='w-[400px]' src={imgUrl} alt="Tech Beats Logo" />
-            <div className='w-full p-5 flex gap-5 flex-wrap justify-evenly'>
+            <div className='w-full p-5 flex gap-5 flex-wrap justify-center'>
                 {
                     data.map((curr, index) => {
                         const { id, title, fileName, icon } = curr;
