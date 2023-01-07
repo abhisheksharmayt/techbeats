@@ -21,8 +21,8 @@ const AudioCard = ({ title, fileName, icon }) => {
 
     }
     return (
-        <div className={`p-2 rounded-2xl m-4 w-[280px] ${isPlaying ? 'bg-gradient-to-r from-[#FF8008] to-[#FFC837]' : 'bg-[#596067]'}`} onClick={playAudio}>
-            <div className='bg-[#242a30] text-[#e9ecef] rounded-2xl p-5 py-8'>
+        <div className={`p-[4px] rounded-2xl m-4 w-[280px] ${isPlaying ? 'bg-gradient-to-r from-[#FF8008] to-[#FFC837]' : 'bg-[#1e293b]'}`} onClick={playAudio}>
+            <div className='bg-[#0f1729] text-[#e9ecef] rounded-2xl p-5 py-8'>
                 <div className={`flex flex-col items-center icons transition-all ${(isPlaying) ? 'opacity-100' : 'opacity-40'}`}>
                     {icon}
                 </div>
