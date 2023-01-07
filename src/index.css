@@ -12,15 +12,15 @@
 
 .github > svg {
     position: absolute;
-    fill: rgb(60, 60, 60);
-    left: 84px;
+    fill: rgb(173, 173, 173);
+    left: 86px;
     top: 9px;
     height: 70px;
     width: 70px;
     transition: all 0.3s ease;
 }
 .github > svg:hover {
-    fill: black;
+    fill: white;
 }
 
 #particles-js canvas {
@@ -40,7 +40,7 @@
     z-index: -10;
     width: 100%;
     height: 100%;
-    background-color: #0f1729;
+    background: linear-gradient(#121c34, #000000);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 50%;
