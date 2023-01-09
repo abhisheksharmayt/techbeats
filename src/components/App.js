@@ -22,6 +22,9 @@ const App = () => {
           {github}
         </div>
       </a>
+      <div className='text-center font-open font-medium text-white'>
+        Built with ❤️ by <a className='hover:underline transition-all' href="https://twitter.com/abhishheksharma">Abhishek Sharma</a>
+      </div>
     </div>
   )
 }
