@@ -2,40 +2,49 @@ import React, { useEffect, useRef, useState } from 'react'
 import { useGlobalContext } from '../context/globalContext';
 import { getUrl } from '../firebase';
 
-const AudioCard = ({sound}) => {
-    const { title, fileName, icon } = sound;
-    const {justAdded, addToCurrentPlaying, removeFromCurrentPlaying} = useGlobalContext();
+const AudioCard = ({ sound }) => {
+    const { title, fileName, icon, id, isPlaying } = sound;
+    const { justAdded, addToCurrentPlaying, removeFromCurrentPlaying, toggleSound } = useGlobalContext();
     const [url, setUrl] = useState(null);
-    const [isPlaying, setIsPlaying] = useState(false);
     const [volume, setVolume] = useState(0.5);
     const audio = useRef();
     useEffect(() => {
         audio.current.volume = volume;
     }, [volume])
-    const playAudio = async () => {
-        if (url === null) {
-            setUrl(await getUrl(fileName));
+
+    useEffect(() => {
+        const handlePlay = async () => {
+            if (isPlaying && url === null) {
+                setUrl(await getUrl(fileName));
+            }
+            setTimeout(() => {
+                isPlaying ? audio.current.play() : audio.current.pause();
+            }, 0)
         }
-        setTimeout(() => {
-            console.log("hello")
-            setIsPlaying(!isPlaying);
-            isPlaying ? audio.current.pause() : audio.current.play();
-        }, 0)
+        handlePlay();
+    }, [isPlaying])
+
+
+    const playAudio = async () => {
+        toggleSound(id);
     }
-    
-    const handleClick = ()=>{
+
+    const handleClick = () => {
         playAudio();
-        if(!isPlaying){
+        if (!isPlaying) {
             addToCurrentPlaying(sound);
             justAdded(sound);
         }
-        else{
+        else {
             removeFromCurrentPlaying(sound);
         }
     }
 
     return (
-        <div className={`grid-item justify-self-stretch p-[2px] rounded-2xl min-w-[280px] ${isPlaying ? 'bg-gradient-to-r from-[#FF8008] to-[#FFC837]' : 'bg-[#1e293b]'}`} onClick={handleClick}>
+        <div
+            className={`grid-item justify-self-stretch p-[2px] rounded-2xl min-w-[280px] ${isPlaying ? 'bg-gradient-to-r from-[#FF8008] to-[#FFC837]' : 'bg-[#1e293b]'}`}
+            onClick={handleClick}
+        >
             <div className='bg-[#0f1729] text-[#e9ecef] rounded-2xl p-5 py-8'>
                 <div className={`flex flex-col items-center icons transition-all ${(isPlaying) ? 'opacity-100' : 'opacity-40'}`}>
                     {icon}

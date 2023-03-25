@@ -4,13 +4,14 @@
 @tailwind components;
 @tailwind utilities;
 
-.icons > svg {
+.icons>svg {
     width: 100px;
     height: 100px;
     fill: white;
+    transition: all cubic-bezier(0.4, 0, 0.2, 1) 150ms;
 }
 
-.github > svg {
+.github>svg {
     position: absolute;
     fill: rgb(173, 173, 173);
     left: 50%;
@@ -18,13 +19,20 @@
     height: 60px;
     transition: all 0.3s ease;
 }
-.github > svg:hover {
+
+.github>svg:hover {
     fill: white;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 640px) {
     .github > svg {
         height: 40px;
+    }
+
+    .icons>svg {
+        width: 60px;
+        height: 60px;
+        fill: white;
     }
 }
 
@@ -51,32 +59,35 @@
     background-position: 50% 50%;
 }
 
-.slide-in{
+.slide-in {
     animation: slideIn 0.5s;
 }
-.fade-in{
+
+.fade-in {
     animation: fadeIn 0.5s;
 }
 
 @keyframes slideIn {
-    0%{
+    0% {
         transform: translateX(100%);
     }
-    100%{
+
+    100% {
         transform: translate(0%);
     }
 }
 
 @keyframes fadeIn {
-    0%{
+    0% {
         opacity: 0;
     }
-    100%{
+
+    100% {
         opacity: 1;
     }
 }
 
-.apply-grid{
+.apply-grid {
     display: grid;
     /* grid-template-columns: 1fr 1fr 1fr 1fr; */
     grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));

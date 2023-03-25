@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react'
+import { useGlobalContext } from '../context/globalContext';
 import AudioCard from './AudioCard'
 import Options from './Options';
-import { audioData } from '../utils/audioData'
 
 const Main = ({ imgUrl }) => {
-    // const [data, setData] = useState(audioData);
+    const {soundsData} = useGlobalContext();
     return (
         <main className='min-h-screen p-10 md:px-14'>
             {/* <img className='w-[350px] mt-10' src={imgUrl} alt="Tech Beats Logo" /> */}
             <div className='apply-grid w-full p-5 gap-4'>
                 <Options />
                 {
-                    audioData.map((currSound, index) => {
+                    soundsData.map((currSound, index) => {
                         const { id } = currSound;
                         return (
                             <AudioCard key={id} sound={currSound} />
