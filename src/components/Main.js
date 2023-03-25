@@ -9,10 +9,10 @@ const Main = ({ imgUrl }) => {
             {/* <img className='w-[350px] mt-10' src={imgUrl} alt="Tech Beats Logo" /> */}
             <div className='w-full p-5 flex gap-8 flex-wrap justify-center'>
                 {
-                    audioData.map((curr, index) => {
-                        const { id, title, fileName, icon } = curr;
+                    audioData.map((currSound, index) => {
+                        const { id } = currSound;
                         return (
-                            <AudioCard key={index} title={title} fileName={fileName} icon={icon} />
+                            <AudioCard key={id} sound={currSound} />
                         )
                     })
                 }

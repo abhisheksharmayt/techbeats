@@ -13,14 +13,19 @@
 .github > svg {
     position: absolute;
     fill: rgb(173, 173, 173);
-    left: 86px;
-    top: 9px;
-    height: 70px;
-    width: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 60px;
     transition: all 0.3s ease;
 }
 .github > svg:hover {
     fill: white;
+}
+
+@media (max-width: 768px) {
+    .github > svg {
+        height: 40px;
+    }
 }
 
 #particles-js canvas {
@@ -44,4 +49,29 @@
     background: linear-gradient(#121c34, #000000);
     background-repeat: no-repeat;
     background-position: 50% 50%;
+}
+
+.slide-in{
+    animation: slideIn 0.5s;
+}
+/* .fade-out{
+    animation: fadeOut 0.5s;
+} */
+
+@keyframes slideIn {
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translate(0%);
+    }
+}
+
+@keyframes fadeOut {
+    100%{
+        opacity: 0;
+    }
+    0%{
+        opacity: 1;
+    }
 }
