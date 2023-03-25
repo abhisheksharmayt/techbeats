@@ -35,7 +35,7 @@ const AudioCard = ({sound}) => {
     }
 
     return (
-        <div className={`p-[2px] rounded-2xl w-[280px] ${isPlaying ? 'bg-gradient-to-r from-[#FF8008] to-[#FFC837]' : 'bg-[#1e293b]'}`} onClick={handleClick}>
+        <div className={`grid-item justify-self-stretch p-[2px] rounded-2xl min-w-[280px] ${isPlaying ? 'bg-gradient-to-r from-[#FF8008] to-[#FFC837]' : 'bg-[#1e293b]'}`} onClick={handleClick}>
             <div className='bg-[#0f1729] text-[#e9ecef] rounded-2xl p-5 py-8'>
                 <div className={`flex flex-col items-center icons transition-all ${(isPlaying) ? 'opacity-100' : 'opacity-40'}`}>
                     {icon}

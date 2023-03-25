@@ -5,7 +5,6 @@ import Chat from './Chat';
 import Footer from './Footer';
 import GithubCard from './GithubCard';
 import { useGlobalContext } from '../context/globalContext';
-import Options from './Options';
 import NewlyAdded from './NewlyAdded';
 
 const App = () => {
@@ -14,11 +13,11 @@ const App = () => {
   return (
     <div className={`relative h-screen ${showChat && 'overflow-hidden'}`}>
       <Navbar imgUrl={imgUrl} openChat={openChat} />
-      <Options />
+      
       <Main imgUrl={imgUrl} ></Main>
       {showChat && <Chat closeChat={closeChat} />}
-      <GithubCard />
       <NewlyAdded />
+      <GithubCard />
       <Footer />
     </div>
   )

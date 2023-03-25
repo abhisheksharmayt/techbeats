@@ -54,9 +54,9 @@
 .slide-in{
     animation: slideIn 0.5s;
 }
-/* .fade-out{
-    animation: fadeOut 0.5s;
-} */
+.fade-in{
+    animation: fadeIn 0.5s;
+}
 
 @keyframes slideIn {
     0%{
@@ -67,11 +67,24 @@
     }
 }
 
-@keyframes fadeOut {
-    100%{
+@keyframes fadeIn {
+    0%{
         opacity: 0;
     }
-    0%{
+    100%{
         opacity: 1;
     }
+}
+
+.apply-grid{
+    display: grid;
+    /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    grid-gap: 2rem;
+    justify-items: center;
+}
+
+.apply-grid>div:first-child {
+    grid-column: 1 / -1;
+    /* span all columns */
 }

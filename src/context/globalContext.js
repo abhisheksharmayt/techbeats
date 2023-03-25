@@ -19,10 +19,11 @@ const GlobalProvider = ({ children }) => {
     const openChat = () => setShowChat(true);
     const closeChat = () => setShowChat(false);
     
-    const addToCurrentPlaying = (sound) => setAddedList([...currentPlaying, sound]);
+    const addToCurrentPlaying = (sound) => {
+        setCurrentPlaying([...currentPlaying, sound])
+    }
     const removeFromCurrentPlaying = (sound) => {
-        let tempList = [...currentPlaying];
-        tempList.filter((item)=> item != sound);
+        let tempList = currentPlaying.filter((item)=> item.id != sound.id);
         setCurrentPlaying(tempList);
     }
 
